@@ -43,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/gilroy_bold"
-                    android:text="Statistics in Uzbekistan"
+                    android:text="Статистика в Узбекистане"
                     android:textAlignment="center"
                     android:textColor="@color/colorWhite"
                     android:textSize="20sp" />
@@ -68,7 +68,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
                             android:fontFamily="@font/gilroy_light"
-                            android:text="INFECTED"
+                            android:text="СЛУЧАЕВ ЗАБОЛЕВАНИЯ"
                             android:textAlignment="center"
                             android:textColor="@color/colorBlack"
                             android:textSize="20sp" />
@@ -93,7 +93,7 @@
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
+                        android:layout_width="116dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
@@ -103,7 +103,7 @@
                         app:cardElevation="5dp">
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="190dp"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="10dp">
@@ -113,7 +113,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
                                 android:fontFamily="@font/gilroy_light"
-                                android:text="RECOVERED"
+                                android:text="ВЫЗДОРОВЕЛО"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="20sp" />
@@ -133,7 +133,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
+                        android:layout_width="116dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:layout_weight="1"
@@ -153,7 +153,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_margin="5dp"
                                 android:fontFamily="@font/gilroy_light"
-                                android:text="DECEASED"
+                                android:text="УМЕРЛО"
                                 android:textAlignment="center"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="20sp" />
@@ -187,7 +187,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/gilroy_bold"
-                    android:text="Symptoms"
+                    android:text="Симптомы"
                     android:textColor="@color/colorDarkGray"
                     android:textSize="20sp" />
 
@@ -197,7 +197,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="15dp"
                     android:fontFamily="@font/gilroy_light"
-                    android:text="view all"
+                    android:text="посмотреть всё"
                     android:textColor="@color/colorGray"
                     android:textSize="15sp" />
 
@@ -211,6 +211,110 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:itemCount="3"
                 tools:listitem="@layout/item_symptoms" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorPrimary"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:fontFamily="@font/gilroy_bold"
+                            android:text="Чувствуете себя плохо?"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/gilroy_light"
+                            android:text="Позвоните в круглосуточную службу поддержки Минздрава Узбекистана"
+                            android:textColor="@color/colorWhite" />
+
+
+                        <Button
+                            android:id="@+id/btnCall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#00000000"
+                            android:fontFamily="@font/gilroy_bold"
+                            android:text="Звонок"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorRed"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/covid_person" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/gilroy_bold"
+                    android:text="Меры предосторожности"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtViewPrecautions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:fontFamily="@font/gilroy_light"
+                    android:text="посмотреть всё"
+                    android:textColor="@color/colorGray"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewPrecautions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="6"
+                tools:listitem="@layout/item_precautions" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -242,7 +346,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:fontFamily="@font/gilroy_bold"
-                            android:text="To Know More About COVID -19"
+                            android:text="Чтобы узнать больше о COVID-19"
                             android:textColor="@color/colorWhite"
                             android:textSize="20sp" />
 
@@ -252,7 +356,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/gilroy_bold"
-                            android:text="More Info"
+                            android:text="Перейти"
                             android:textAllCaps="false"
                             android:background="#00000000"
                             android:textColor="@color/colorWhite"
@@ -271,43 +375,8 @@
 
             </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/gilroy_bold"
-                    android:text="Precautions"
-                    android:textColor="@color/colorDarkGray"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/txtViewPrecautions"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="15dp"
-                    android:fontFamily="@font/gilroy_light"
-                    android:text="view all"
-                    android:textColor="@color/colorGray"
-                    android:textSize="15sp" />
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewPrecautions"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:itemCount="6"
-                tools:listitem="@layout/item_precautions" />
-
         </LinearLayout>
+
 
     </RelativeLayout>
 

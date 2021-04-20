@@ -61,7 +61,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:fontFamily="@font/gilroy_bold"
-            android:text="Get Started"
+            android:text="Далее"
             android:textColor="@color/colorPrimary"
             android:textSize="15sp" />
 
