@@ -5,12 +5,15 @@ import android.app.VoiceInteractor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("WrongConstant")
@@ -89,23 +92,34 @@ class MainActivity : AppCompatActivity() {
 
         recyclerViewPrecautions.adapter = precautionsAdapter
 
+        getGlobalData()
+
     }
 
     fun getGlobalData() {
-        var url: String =
+        val url: String =
             "https://disease.sh/v3/covid-19/countries/uzb?yesterday=true&twoDaysAgo=true&strict=true&allowNull=true"
 
-        var stringRequest = StringRequest(Request.Method.GET,
+        val stringRequest = StringRequest(Request.Method.GET,
             url,
-            Response.Listener<String>{
+            Response.Listener<String> {
+                var jsonObject = JSONObject(it.toString())
 
+                txtInfected.text = jsonObject.getString("cases")
+                txtRecoverd.text = jsonObject.getString("recovered")
+                txtDeceased.text = jsonObject.getString("deaths")
             },
             Response.ErrorListener {
+                Toast.makeText(this@MainActivity, "Something went wrong", Toast.LENGTH_LONG).show()
+                txtInfected.text = "-"
+                txtRecoverd.text = "-"
+                txtDeceased.text = "-"
 
             }
         )
 
-        
+        val requestQueue = Volley.newRequestQueue(this@MainActivity)
+        requestQueue.add(stringRequest)
 
     }
 }
