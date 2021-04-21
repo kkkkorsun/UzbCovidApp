@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:fontFamily="@font/gilroy_bold"
-                android:text="HOW IT SPREADS"
+                android:text="КАК РАСПРОСТРАНЯЕТСЯ ЗАБОЛЕВАНИЕ"
                 android:textAlignment="center"
                 android:textColor="@color/colorPrimary"
                 android:textSize="15sp" />
@@ -61,7 +61,7 @@
                 android:fontFamily="@font/gilroy_bold"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:text="Learn More"
+                android:text="Узнать больше"
                 android:textAllCaps="false"
                 android:textColor="@color/colorWhite"
                 android:textSize="14sp" />

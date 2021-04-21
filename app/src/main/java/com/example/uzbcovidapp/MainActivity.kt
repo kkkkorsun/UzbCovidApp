@@ -14,6 +14,10 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 import java.util.jar.Manifest
@@ -23,15 +27,34 @@ class MainActivity : AppCompatActivity() {
     val phoneNumber = "1003"
     val REQUEST_PHONE_CALL = 1
 
+
+    lateinit var mAdView : AdView
+
+
     @SuppressLint("WrongConstant")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btnCall.setOnClickListener{
-            if (ActivityCompat.checkSelfPermission(this,android.Manifest.permission.CALL_PHONE) !=PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE), REQUEST_PHONE_CALL)
-            }else {
+        MobileAds.initialize(this) {}
+
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+
+        btnCall.setOnClickListener {
+            if (ActivityCompat.checkSelfPermission(
+                    this,
+                    android.Manifest.permission.CALL_PHONE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(android.Manifest.permission.CALL_PHONE),
+                    REQUEST_PHONE_CALL
+                )
+            } else {
                 startCall()
             }
         }
@@ -116,18 +139,18 @@ class MainActivity : AppCompatActivity() {
 
         getGlobalData()
 
-        btnKnowMore.setOnClickListener{
-            var intent = Intent(this@MainActivity,KnowMoreActivity::class.java)
+        btnKnowMore.setOnClickListener {
+            var intent = Intent(this@MainActivity, KnowMoreActivity::class.java)
             startActivity(intent)
         }
 
         txtViewPrecautions.setOnClickListener {
-            var intent = Intent(this@MainActivity,PrecautionActivity::class.java)
+            var intent = Intent(this@MainActivity, PrecautionActivity::class.java)
             startActivity(intent)
         }
 
         txtViewSymptoms.setOnClickListener {
-            var intent = Intent(this@MainActivity,SymptomsActivity::class.java)
+            var intent = Intent(this@MainActivity, SymptomsActivity::class.java)
             startActivity(intent)
         }
 
@@ -135,7 +158,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun startCall() {
         val callIntent = Intent(Intent.ACTION_CALL)
-        callIntent.data = Uri.parse("tel:"+phoneNumber)
+        callIntent.data = Uri.parse("tel:" + phoneNumber)
         startActivity(callIntent)
     }
 
@@ -144,7 +167,7 @@ class MainActivity : AppCompatActivity() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
-        if (requestCode == REQUEST_PHONE_CALL)startCall()
+        if (requestCode == REQUEST_PHONE_CALL) startCall()
     }
 
 

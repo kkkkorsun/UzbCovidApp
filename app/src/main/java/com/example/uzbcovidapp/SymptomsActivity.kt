@@ -1,15 +1,11 @@
 package com.example.uzbcovidapp
 
 import android.annotation.SuppressLint
-import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
-import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_symptoms.*
-import kotlinx.android.synthetic.main.activity_symptoms.recyclerView
 
 class SymptomsActivity : AppCompatActivity() {
     @SuppressLint("WrongConstant")
@@ -18,18 +14,6 @@ class SymptomsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_symptoms)
 
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        val symptomsList = ArrayList<Model>()
-        setContentView(R.layout.activity_main)
-
-        btnCall.setOnClickListener{
-            if (ActivityCompat.checkSelfPermission(this,android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CALL_PHONE), REQUEST_PHONE_CALL)
-            }else {
-                startCall()
-            }
-        }
-
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.HORIZONTAL, false)
         val symptomsList = ArrayList<Model>()
         symptomsList.add(
             Model(
@@ -59,7 +43,6 @@ class SymptomsActivity : AppCompatActivity() {
                 "При проникновении инфекции в организм горло является одним из первых органов, подвергающихся вирусной атаке."
             )
         )
-        
         val symptomsAdapter = SymptomsAdapter(symptomsList)
 
         recyclerView.adapter = symptomsAdapter
