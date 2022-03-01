@@ -262,6 +262,7 @@
                             android:layout_height="wrap_content"
                             android:background="#00000000"
                             android:fontFamily="@font/gilroy_bold"
+
                             android:text="Звонок"
                             android:textAllCaps="false"
                             android:textColor="@color/colorRed"
@@ -355,10 +356,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
+                            android:background="#00000000"
                             android:fontFamily="@font/gilroy_bold"
                             android:text="Перейти"
                             android:textAllCaps="false"
-                            android:background="#00000000"
                             android:textColor="@color/colorWhite"
                             android:textSize="15sp" />
 
@@ -377,17 +378,14 @@
 
         </LinearLayout>
 
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
+        <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
             android:id="@+id/adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-2472008410014086/7205746375">
-        </com.google.android.gms.ads.AdView>
-
+            ads:adUnitId="ca-app-pub-2472008410014086/7205746375" />
     </RelativeLayout>
 
 

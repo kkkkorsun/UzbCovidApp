@@ -140,17 +140,17 @@ class MainActivity : AppCompatActivity() {
         getGlobalData()
 
         btnKnowMore.setOnClickListener {
-            var intent = Intent(this@MainActivity, KnowMoreActivity::class.java)
+            val intent = Intent(this@MainActivity, KnowMoreActivity::class.java)
             startActivity(intent)
         }
 
         txtViewPrecautions.setOnClickListener {
-            var intent = Intent(this@MainActivity, PrecautionActivity::class.java)
+            val intent = Intent(this@MainActivity, PrecautionActivity::class.java)
             startActivity(intent)
         }
 
         txtViewSymptoms.setOnClickListener {
-            var intent = Intent(this@MainActivity, SymptomsActivity::class.java)
+            val intent = Intent(this@MainActivity, SymptomsActivity::class.java)
             startActivity(intent)
         }
 
@@ -171,20 +171,20 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun getGlobalData() {
+    private fun getGlobalData() {
         val url: String =
             "https://disease.sh/v3/covid-19/countries/uzb?yesterday=true&twoDaysAgo=true&strict=true&allowNull=true"
 
         val stringRequest = StringRequest(Request.Method.GET,
             url,
-            Response.Listener<String> {
-                var jsonObject = JSONObject(it.toString())
+            {
+                val jsonObject = JSONObject(it.toString())
 
                 txtInfected.text = jsonObject.getString("cases")
                 txtRecoverd.text = jsonObject.getString("recovered")
                 txtDeceased.text = jsonObject.getString("deaths")
             },
-            Response.ErrorListener {
+            {
                 Toast.makeText(this@MainActivity, "Something went wrong", Toast.LENGTH_LONG).show()
                 txtInfected.text = "-"
                 txtRecoverd.text = "-"

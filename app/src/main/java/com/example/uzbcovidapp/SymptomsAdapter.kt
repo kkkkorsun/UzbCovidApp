@@ -30,7 +30,6 @@ class SymptomsAdapter(var symptomsList: ArrayList<Model>) :
         fun bind(symptomsModel: Model) {
             val symptomsText = itemView.findViewById<TextView>(R.id.txtSymptoms)
             val symptomsTextDetail = itemView.findViewById<TextView>(R.id.txtSymptomsDetail)
-
             val imageView = itemView.findViewById<ImageView>(R.id.imageView)
             imageView.setImageResource(symptomsModel.imageView)
             symptomsText.text = symptomsModel.symptomsText
